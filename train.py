@@ -1,11 +1,9 @@
-import string
 import phraseMethods
 import statisticsMethods
 
 def main():
     statisticsMethods.load_file()
     print("Insira !0!0! para parar o programa")
-    phrase = ""
     while True:
         phrase = input("")
         if phrase == "!0!0!":
@@ -17,5 +15,5 @@ def main():
         phraseMethods.learn_phrase(phrase)
     
     statisticsMethods.save_file()
-    
+
 main()
