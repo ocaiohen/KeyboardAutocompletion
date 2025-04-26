@@ -1,5 +1,6 @@
 import json
 import os
+import random
 
 words_statistics_file_name = "words_statistics"
 # with open(f"{words_statistics_file_name}.json", mode="W")
@@ -24,3 +25,17 @@ def update_word_data(word, next_word, n):
 
     word_data[word][next_word] += n
     print(word_data)
+def get_autocomplete_word(phrase):
+    words_list = phrase.split()
+    last_word = words_list[-1]
+
+    if last_word not in word_data:
+        word_data[last_word] = {}
+        return random.choice(list(word_data.keys()))
+    
+    words_and_frequency = list(zip(word_data[last_word].keys(), word_data[last_word].values()))
+
+    words_and_frequency = sorted(words_and_frequency, key = lambda x: x[1])
+
+    return words_and_frequency[-1][0]
+    
