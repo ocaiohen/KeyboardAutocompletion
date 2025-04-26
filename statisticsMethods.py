@@ -24,7 +24,6 @@ def update_word_data(word, next_word, n):
         word_data[word][next_word] = 0
 
     word_data[word][next_word] += n
-    print(word_data)
 def get_autocomplete_word(phrase):
     words_list = phrase.split()
     last_word = words_list[-1]
@@ -35,7 +34,13 @@ def get_autocomplete_word(phrase):
     
     words_and_frequency = list(zip(word_data[last_word].keys(), word_data[last_word].values()))
 
-    words_and_frequency = sorted(words_and_frequency, key = lambda x: x[1])
+    max_frequency = max(word[1] for word in words_and_frequency)
 
-    return words_and_frequency[-1][0]
+    most_frequent_words = [word for word, freq in words_and_frequency if freq == max_frequency]
+
+    return random.choice(most_frequent_words)
+
+    # words_and_frequency = sorted(words_and_frequency, key = lambda x: x[1])
+
+    # return words_and_frequency[-1][0]
     
