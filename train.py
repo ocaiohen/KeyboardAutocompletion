@@ -2,9 +2,6 @@ import string
 import phraseMethods
 import statisticsMethods
 
-words_dict = {}
-forbidden_characters = []
-forbidden_characters.extend(string.punctuation)
 def main():
     statisticsMethods.load_file()
     print("Insira !0!0! para parar o programa")
@@ -20,7 +17,5 @@ def main():
         phraseMethods.learn_phrase(phrase)
     
     statisticsMethods.save_file()
-        
-            
-
+    
 main()
