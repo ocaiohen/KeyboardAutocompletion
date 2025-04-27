@@ -11,12 +11,17 @@ def remove_forbidden_characters(phrase):
 
     for word in phrase.split():
         characters_list = list(word)
-        
+
         for i in range(len(characters_list)):
             if characters_list[i] in globalVariables.FORBIDDEN_CHARACTERS:
-                characters_list[i] = ""
-                # print(characters_list)
-        word = "".join(characters_list)
+                if characters_list[i] == "-":
+                    # Remove "-" no começo ou no final
+                    if i == 0 or i == len(characters_list) - 1:
+                        characters_list[i] = ""
+                else:
+                    characters_list[i] = ""
+
+        word = "".join(c for c in characters_list if c != "")
         words_list.append(word)
 
     return " ".join(words_list)
