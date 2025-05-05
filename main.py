@@ -14,7 +14,7 @@ def main():
         full_phrase = f"{previous_phrase} {new_phrase}"
         full_phrase = phraseMethods.basic_input_treatment(full_phrase)
 
-        print(full_phrase)
+        print(full_phrase + "\n")
         full_phrase = f"{full_phrase} {statisticsMethods.get_autocomplete_word(full_phrase)}"
         previous_phrase = full_phrase
 
