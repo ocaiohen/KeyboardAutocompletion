@@ -28,11 +28,15 @@ def get_autocomplete_word(phrase):
     words_list = phrase.split()
     last_word = words_list[-1]
 
-    if last_word not in word_data:
+    if last_word not in word_data.keys():
         word_data[last_word] = {}
         return random.choice(list(word_data.keys()))
     
     words_and_frequency = list(zip(word_data[last_word].keys(), word_data[last_word].values()))
+
+    if words_and_frequency == []:
+        #retorna uma palavra aleatória caso o words_and_frequency esteja vazio. Isso significa que a palavra está registrada no dict (pois passou pelo outro if do last_word not in word_data.keys() ) mas não tem palavras sucessoras registradas.
+        return random.choice(list(word_data.keys()))
 
     max_frequency = max(word[1] for word in words_and_frequency)
 
