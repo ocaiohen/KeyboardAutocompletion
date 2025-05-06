@@ -1,8 +1,9 @@
 import json
 import os
 import random
+import globalVariables
 
-words_statistics_file_name = "words_statistics"
+words_statistics_file_name = globalVariables.STATISTICS_FILE_IN_USAGE
 # with open(f"{words_statistics_file_name}.json", mode="W")
 
 word_data = {}
@@ -47,4 +48,3 @@ def get_autocomplete_word(phrase):
     # words_and_frequency = sorted(words_and_frequency, key = lambda x: x[1])
 
     # return words_and_frequency[-1][0]
-    
