@@ -27,6 +27,9 @@ def learn_from_whatsapp_chat_file(file_path, person = "all"):
     #pegar apenas as mensagens de um contato especifico
     #pegar do travessão ao segundo ":"
     with open(file_path, "r", encoding="utf-8") as file:
+        #apenas por curiosidade, desabilitar se quiser
+        # n_of_messages_learnt = 0
+        # n_of_words_typed = 0
         for line in file:
 
             #algumas linhas para ignorar linhas que não são mensagens
@@ -52,6 +55,16 @@ def learn_from_whatsapp_chat_file(file_path, person = "all"):
                 message = phraseMethods.basic_input_treatment(message)
                 message = phraseMethods.remove_forbidden_characters(message)
                 phraseMethods.learn_phrase(message)
+
+                #apenas por curiosidade, desativar se quiser
+                # words_list = message.split()
+                # n_of_words_typed += len(words_list)
+                # n_of_messages_learnt += 1
+
+        #apenas por curiosidade, desativar se quiser
+        # print(f"Total de mensagens aprendidas: {n_of_messages_learnt}")
+        # print(f"Total de palavras aprendíveis digitadas no grupo: {n_of_words_typed}")
+
 
 #Exemplo de linha
 # 07/03/2025 11:34 - Caio Henrique: @5584123456789, eu estou enlouquecendo <Mensagem editada>
